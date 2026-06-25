@@ -152,7 +152,7 @@ Visit `http://127.0.0.1:8000` and start creating recipes!
 
 ## 📦 **Windows Installer**
 
-Descarga el instalador desde [Releases](https://github.com/tuusuario/ChainChef/releases):
+Descarga el instalador desde [Releases](https://github.com/mlidon/ChainChef/releases):
 
 1. Ejecuta `ChainChef_Installer.exe`  
 2. Si **Ollama** no está instalado, se descargará e instalará automáticamente  
