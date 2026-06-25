@@ -1,79 +1,101 @@
-# 🚀 **FastAPI Library CRUD**  
-A simple and educational CRUD application built with FastAPI, SQLite, and JWT authentication.
-"Part of my personal template collection for rapid prototyping of AI-powered applications."
 
-<p align="center">
-  <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" width="180">
-</p>
-
----
-
+# 🚀 ChainChef — AI Recipe Assistant (Local & Private)
 ## 🏷️ **Tech Stack**
 
 <p align="left">
   <img src="https://img.shields.io/badge/FastAPI-0.111.0-009688?style=for-the-badge&logo=fastapi&logoColor=white">
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Ollama-local-FF6B6B?style=for-the-badge&logo=ollama&logoColor=white">
+  <img src="https://img.shields.io/badge/LangChain-latest-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white">
   <img src="https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white">
   <img src="https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
   <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+  <img src="https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
+</p>
+
+---
+<p align="center">
+  <img src="frontend/img/logo_white.png" width="220">
 </p>
 
 ---
 
 ## 📌 **Project Overview**
 
-This project is a **full CRUD application** built with **FastAPI** and a lightweight **SQLite** database.  
-It includes:
+**ChainChef** es un asistente de cocina inteligente que funciona completamente **en local**, sin enviar datos a la nube.  
+Gracias a **Ollama** y **LangChain**, entiende tu lenguaje natural, extrae ingredientes, restricciones y tiempo, y genera recetas personalizadas al instante.
 
-- User authentication with **JWT tokens**  
-- CRUD operations for managing personal book collections  
-- A simple **HTML + JavaScript frontend**  
-- A clean, modular backend architecture  
-- A fully documented learning‑oriented structure  
+Escribe _"Quiero una tortilla de patatas con cebolla, sin gluten, en 20 minutos"_ y obtendrás una receta completa, con cantidades en sistema métrico y la posibilidad de descargarla en PDF.
 
-The goal of this project is to serve as a **learning prototype** for building real‑world FastAPI applications with authentication, routing, services, schemas, and frontend integration.
+**Todo desde tu ordenador. Privacidad total.**
 
 ---
 
 ## ✨ **Features**
 
-- 🔐 User registration & login  
-- 🔑 JWT‑based authentication  
-- 📚 CRUD for books (Create, Read, Update, Delete)  
-- 🗂️ SQLite persistence  
-- 🎨 Frontend with Bootstrap  
-- 🔄 Fully connected frontend ↔ backend  
-- 🧩 Modular architecture (routers, services, schemas, models)  
+- 🤖 **IA 100% local** con Ollama (`llama3:instruct`)  
+- ⛓️ **LangChain** para encadenar prompts y extraer datos estructurados  
+- ⏱️ **Recetas adaptadas** a tus ingredientes, alergias y tiempo disponible  
+- 📄 **Descarga en PDF** con un solo clic  
+- 🎨 **Interfaz moderna** (panel izquierdo fijo, resultados a la derecha)  
+- 🔒 **Autenticación JWT** (login y registro)  
+- 🗂️ **SQLite** para persistencia de usuarios  
+- 💻 **Instalador para Windows** (no requiere Python ni conocimientos técnicos)  
+
+---
+
+## 🖼️ **Screenshots**
+
+<p align="center">
+  <img src="frontend/img/screenshots/screen_shot.png" alt="ChainChef screenshot" width="700">
+</p>
 
 ---
 
 ## 📁 **Project Structure**
 
 ```
-app/
- ├── main.py
- ├── auth/
- │     └── auth.py
- ├── routers/
- │     └── book_router.py
- ├── services/
- │     └── book_service.py
- ├── schemas/
- │     └── book_schema.py
- ├── models/
- │     └── book.py
- ├── database.py
- ├── dependencies.py
-frontend/
- ├── login.html
- ├── register.html
- ├── books.html
- ├── app.js
+ChainChef/
+├── app/                         # Backend FastAPI
+│   ├── ia/                      # LangChain chains y prompts
+│   │   ├── chains.py
+│   │   └── prompts.py
+│   ├── routers/                 # Endpoints API
+│   │   ├── receta_router.py
+│   │   ├── auth_router.py
+│   │   ├── user_router.py
+│   │   └── book_router.py
+│   ├── services/                # Lógica de negocio
+│   │   ├── receta_service.py
+│   │   ├── auth_service.py
+│   │   └── ...
+│   ├── schemas/                 # Pydantic schemas
+│   │   ├── receta_schema.py
+│   │   └── ...
+│   ├── models/                  # SQLAlchemy models
+│   ├── main.py                  # Punto de entrada FastAPI
+│   ├── database.py
+│   └── auth.py
+├── frontend/                    # Interfaz de usuario
+│   ├── index.html               # Login
+│   ├── register.html            # Registro
+│   ├── recetas.html             # Asistente de recetas
+│   ├── styles.css
+│   ├── app.js
+│   └── img/
+├── run_server.py                # Script de arranque
+├── ChainChef.spec               # PyInstaller spec
+├── ChainChef_Setup.iss          # Script Inno Setup
+├── install_ollama.ps1           # Instalador silencioso de Ollama
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## 🚀 **How to Run the Project**
+## 🚀 **How to Run (Development)**
 
 ### 1. Create a virtual environment
 ```bash
@@ -85,49 +107,77 @@ python -m venv venv
 ```bash
 venv\Scripts\activate
 ```
+**Linux/Mac:**
+```bash
+source venv/bin/activate
+```
 
 ### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Start the server
+### 4. Start Ollama and download the model
+```bash
+ollama serve
+ollama pull llama3:instruct
+```
+
+### 5. Start the server
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### 5. Open the frontend  
-Open `login.html` in your browser.
+### 6. Open the frontend  
+Visit `http://127.0.0.1:8000` and start creating recipes!
 
 ---
 
 ## 🔧 **API Endpoints**
 
 ### **Auth**
-| Method | Endpoint       | Description        |
-|--------|----------------|--------------------|
-| POST   | `/auth/login`  | User login         |
-| POST   | `/auth/register` | User registration |
+| Method | Endpoint         | Description        |
+|--------|------------------|--------------------|
+| POST   | `/auth/login`    | User login         |
+| POST   | `/auth/register` | User registration  |
 
-### **Books**
-| Method | Endpoint        | Description              |
-|--------|-----------------|--------------------------|
-| GET    | `/books/`       | List user books          |
-| POST   | `/books/`       | Create a new book        |
-| PUT    | `/books/{id}`   | Update an existing book  |
-| DELETE | `/books/{id}`   | Delete a book            |
+### **Recipes**
+| Method | Endpoint            | Description                          |
+|--------|---------------------|--------------------------------------|
+| POST   | `/recetas/generar`  | Generate a personalized recipe (AI) |
+
+*(Other CRUD endpoints for books and users are also available as inherited from the template)*
+
+---
+
+## 📦 **Windows Installer**
+
+Descarga el instalador desde [Releases](https://github.com/tuusuario/ChainChef/releases):
+
+1. Ejecuta `ChainChef_Installer.exe`  
+2. Si **Ollama** no está instalado, se descargará e instalará automáticamente  
+3. Al finalizar, ChainChef se abrirá listo para usar  
+
+**No requiere Python ni configuración adicional.**
+
+---
+
+## 🧠 **How the AI works**
+
+1. **Extracción**: LangChain analiza tu mensaje con un `PydanticOutputParser` para obtener ingredientes, restricciones y tiempo en formato JSON.
+2. **Generación**: Una segunda cadena de LangChain crea la receta completa con formato Markdown, respetando las restricciones y usando unidades métricas.
+3. **Frontend**: El resultado se muestra formateado en tiempo real y se puede descargar como PDF.
 
 ---
 
 ## 🎯 **Purpose of This Project**
 
-This repository is part of a personal learning journey to:
+Este proyecto forma parte de un viaje de aprendizaje para:
 
-- Understand FastAPI deeply  
-- Build real, modular backend architectures  
-- Connect frontend and backend cleanly  
-- Prepare for more advanced AI‑powered applications  
-- Create a solid foundation for future prototypes  
+- Dominar **LangChain** y la creación de cadenas con IA local  
+- Construir aplicaciones **full-stack** con FastAPI + frontend vanilla  
+- Integrar modelos de lenguaje en productos reales sin depender de la nube  
+- Crear una base sólida para futuros agentes autónomos  
 
 ---
 
@@ -135,6 +185,6 @@ This repository is part of a personal learning journey to:
 
 MIT License — feel free to use, modify, and learn from this project.
 
+---
 
-Built by Marc Lidón — [marclidon.com](https://marclidon.com)
-
+Built with ❤️ by Marc Lidón — [marclidon.com](https://marclidon.com)
